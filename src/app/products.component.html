@@ -1,1 +1,11 @@
-<h1>Product Component</h1>
+<h1>My products</h1>
+<input type="text" [(ngModel)]="productName" />
+<!-- [(ngModel)] = combine PROPERTY BINDING and EVENT BINDING and bind to ngModule - special directive from angular. Now the value of the input is the value of the "productName" and after typing into input the productName is updated to whatever was entered-->
+<!-- to eneble [(ngModel)] we NEED TO IMPORT FormsModule INTO app.module.ts-->
+<button (click)="productName = 'A Tree'" [disabled]="isDisabled">
+  Change Name
+</button>
+<!-- (click) = event -->
+<!-- [disabled]="isDisabled" = PROPERTY BINDING =  eg. disabled in HTML is a property of button; "disabled" now is dynamic, binded to the class property from the .ts file-->
+<div>{{ productName }}</div>
+<!-- {{ dynamic Content }} = PROPERTY BINDING - dynamic content from the class in .ts file -->
