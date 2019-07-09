@@ -7,10 +7,19 @@ import { Component } from '@angular/core';
 export class ProductsComponent {
   productName = 'A Book';
   isDisabled = true;
+  products=['A Book', 'A Tree'];
 
   constructor() {
     setTimeout(() => {
       this.isDisabled = false;
     },3000)
+  }
+
+  onAddProduct() {
+    this.products.push(this.productName);
+  }
+
+  onRemoveProduct(productName: string) {
+    this.products = this.products.filter(p => p !== productName);
   }
 }
