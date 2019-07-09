@@ -12,8 +12,10 @@
 
 
 <h1>My products</h1>
-<input *ngIf="!isDisabled" type="text" [(ngModel)]="productName" />
-<button *ngIf="!isDisabled" (click)="onAddProduct()" [disabled]="isDisabled">
-  Add Product
-</button>
+<form (ngSubmit)="onAddProduct(f)" #f="ngForm">
+  <input type="text" ngModel name="productName" required/>  <!-- angular behind the scenes create an object with information from the input and to get access to those informations nedd to be added local reference (#f) to the form element -->
+  <button type="submit">
+    Add Product
+  </button>
+</form>
 <app-product (productClicked)="onRemoveProduct(product)" *ngFor="let product of products" [productName]="product"></app-product>
